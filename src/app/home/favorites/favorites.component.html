@@ -1,9 +1,15 @@
 <ul>
   <li *ngFor="let movie of favorites$ | async">
     <div>{{ movie.Title }}</div>
-    <div>{{ movie.Year }}</div>
+    <div>
+      <button class="button" [routerLink]="['/details', movie.id]">
+        Details ℹ️
+      </button>
+      <button class="button" (click)="deleteMovie(movie.id)">Delete ❌</button>
+    </div>
+    <!-- <div>{{ movie.Year }}</div>
     <div>{{ movie.Actors }}</div>
     <div>{{ movie.currencies }}</div>
-    <img src="{{ movie.flags.png }}" />
+    <img src="{{ movie.flags.png }}" /> -->
   </li>
 </ul>

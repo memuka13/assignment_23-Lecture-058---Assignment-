@@ -12,14 +12,15 @@ export interface CountryInfo {
   };
 }
 
-export interface CountryResult {
-  currencies: string[];
-  flags: {
-    png: string;
-  };
-}
+// export interface CountryResult {
+//   currencies: string[];
+//   flags: {
+//     png: string;
+//   };
+// }
 
 export interface FavouriteMoviesList {
+  id: string;
   Title: string;
   Year: string;
   Actors: string;

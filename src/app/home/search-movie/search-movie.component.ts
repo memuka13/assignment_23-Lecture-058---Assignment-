@@ -1,7 +1,7 @@
 import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { Observable, switchMap, from, of, forkJoin, map, tap } from 'rxjs';
-import { CountryInfo, CountryResult, MovieInfo } from 'src/app/app.model';
+import { CountryInfo, MovieInfo } from 'src/app/app.model';
 import { AppService } from 'src/app/app.service';
 
 @Component({
@@ -44,17 +44,17 @@ export class SearchMovieComponent {
   }
 
   addToFavorites(result: MovieInfo, country: CountryInfo[]) {
-    console.log(result);
-    console.log(country);
     const obj = {
+      id: this.api.jokeID,
       Title: result.Title,
       Year: result.Year,
       Actors: result.Actors,
-      currencies: Object.keys(country[0].currencies),
+      currencies: Object.keys(country[0].currencies)[0],
       flags: {
         png: country[0].flags.png,
       },
     };
-    console.log(obj);
+    this.result$ = undefined;
+    return this.api.saveMovie(obj).subscribe();
   }
 }

@@ -1,17 +1,26 @@
 ul {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 10px;
   li {
+    display: flex;
+    justify-content: space-between;
     list-style: none;
-    padding: 10px;
+    margin: 10px;
+    padding: 10px 20px;
+    border-radius: 10px;
+    background-color: rgba(218, 85, 85, 0.938);
 
     div {
-      padding: 3px;
-    }
+      display: flex;
+      align-items: center;
 
-    img {
-      width: 50%;
+      .button {
+        height: 30px;
+        width: 100px;
+        background-color: rgba(31, 31, 31, 0.411);
+        border: none;
+        border-radius: 15px;
+        margin: 0 5px;
+        cursor: pointer;
+      }
     }
   }
 }

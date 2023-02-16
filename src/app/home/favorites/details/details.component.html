@@ -1,0 +1,12 @@
+<section *ngIf="selection">
+  <div>
+    <div>Released: {{ selection.Year }}</div>
+    <div>Actors: {{ selection.Actors }}</div>
+    <div>Currencies: {{ selection.currencies }}</div>
+    <div>Flags:</div>
+
+    <div>
+      <img src="{{ selection.flags.png }}" />
+    </div>
+  </div>
+</section>

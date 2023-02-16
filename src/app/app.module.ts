@@ -11,9 +11,10 @@ import { API_BASE_COUNTRY, API_BASE_MOVIE } from './tokens';
 import { environment } from 'src/environments/environment';
 import { CommonModule } from '@angular/common';
 import { FavoritesComponent } from './home/favorites/favorites.component';
+import { DetailsComponent } from './home/favorites/details/details.component';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, SearchMovieComponent, FavoritesComponent],
+  declarations: [AppComponent, HomeComponent, SearchMovieComponent, FavoritesComponent, DetailsComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
