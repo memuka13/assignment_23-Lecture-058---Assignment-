@@ -1,0 +1,14 @@
+
+ul {
+  display: flex;
+  gap: 20px;
+
+  li{
+    list-style: none;
+    cursor: pointer;
+    background-color: rgb(75, 117, 145);
+    border-radius: 10px;
+    padding: 3px 10px;
+    color: azure;
+  }
+}

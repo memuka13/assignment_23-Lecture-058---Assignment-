@@ -1,0 +1,22 @@
+{
+  "movies": [
+    {
+      "Title": "Mamuka",
+      "Year": "1991",
+      "Actors": "Anzora Cercvadze, Jumber Patiashvili",
+      "currencies": "GEL",
+      "flags": {
+        "png": "https://flagcdn.com/w320/um.png"
+      }
+    },
+    {
+      "Title": "Ninutsa",
+      "Year": "1992",
+      "Actors": "Anzora Cercvadze, Jumber Patiashvili",
+      "currencies": "GEL",
+      "flags": {
+        "png": "https://flagcdn.com/w320/um.png"
+      }
+    }
+  ]
+}

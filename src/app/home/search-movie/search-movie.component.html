@@ -1,0 +1,31 @@
+<input type="text" [formControl]="input" />
+<button (click)="search()">Search</button>
+
+<ng-container *ngIf="result$ | async as result">
+  <ng-container *ngIf="countryResult$">
+    <div *ngFor="let country$ of countryResult$">
+      <div *ngIf="country$ | async as country">
+        <div class="movideSearchResultDiv">
+          <button (click)="addToFavorites(result, country)">
+            Add to favorites
+          </button>
+          <div class="releseResultDiv">
+            Released: {{ result.Year }}
+            <div class="releseResult"></div>
+          </div>
+          <div class="actorsResultDiv">
+            Actors: {{ result.Actors }}
+            <div class="actorsResult"></div>
+          </div>
+          <!-- <div *ngFor="let item of country"> -->
+          <div class="currenciesAndFlagsResultDiv">
+            Currencies and Flags:
+            <div>{{ returnKeys(country[0].currencies) }}</div>
+            <img src="{{ country[0].flags.png }}" />
+          </div>
+          <!-- </div> -->
+        </div>
+      </div>
+    </div>
+  </ng-container>
+</ng-container>

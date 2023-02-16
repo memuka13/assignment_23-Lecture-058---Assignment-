@@ -1,0 +1,9 @@
+<ul>
+  <li *ngFor="let movie of favorites$ | async">
+    <div>{{ movie.Title }}</div>
+    <div>{{ movie.Year }}</div>
+    <div>{{ movie.Actors }}</div>
+    <div>{{ movie.currencies }}</div>
+    <img src="{{ movie.flags.png }}" />
+  </li>
+</ul>
