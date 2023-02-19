@@ -18,14 +18,14 @@ export class AppService {
     @Inject(API_BASE_COUNTRY) private apiBaseCountry: string
   ) {}
 
-  jokeID: string = '';
+  ID: string = '';
 
   getMovie(movieName: string): Observable<MovieInfo> {
     this.http
       .get<FavouriteMoviesList[]>(`${environment.jsonServerBase}movies`)
       .subscribe((x) => {
         const lastIndex = x.length - 1;
-        this.jokeID = (Number(x[lastIndex].id) + 1).toString();
+        this.ID = (Number(x[lastIndex].id) + 1).toString();
       });
     return this.http.get<MovieInfo>(
       `${this.apiBaseMovie}?t=${movieName}&apikey=${this.movieApiKey}`
@@ -44,6 +44,10 @@ export class AppService {
 
   saveMovie(object: FavouriteMoviesList) {
     return this.http.post(`${environment.jsonServerBase}movies`, object);
+  }
+
+  editMovieComment(id: string, object: FavouriteMoviesList) {
+    return this.http.patch(`${environment.jsonServerBase}movies/${id}`, object);
   }
 
   deleteMovie(id: string) {

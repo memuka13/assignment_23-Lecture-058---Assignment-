@@ -1,4 +1,4 @@
-<input type="text" [formControl]="input" />
+<input type="text" placeholder="Enter Movie Title" [formControl]="input" />
 <button (click)="search()">Search</button>
 
 <ng-container *ngIf="result$ | async as result">
@@ -23,7 +23,20 @@
             <div>{{ returnKeys(country[0].currencies) }}</div>
             <img src="{{ country[0].flags.png }}" />
           </div>
-          <!-- </div> -->
+          <div>
+            <button class="plus" (click)="decreaseRaiting()">-</button>
+            <input [(ngModel)]="raiting" [disabled]="true" />
+            <button class="plus" (click)="increaseRaiting()">+</button>
+          </div>
+
+          <div>
+            <input
+              class="commentInput"
+              type="text"
+              placeholder="Enter your comment"
+              [(ngModel)]="comment"
+            />
+          </div>
         </div>
       </div>
     </div>

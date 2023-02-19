@@ -13,6 +13,20 @@ export class SearchMovieComponent {
   input: FormControl<string> = new FormControl();
   result$: Observable<MovieInfo> | undefined;
   countryResult$: Observable<CountryInfo[]>[] | undefined;
+  raiting: number = 0;
+  comment: string = '';
+
+  increaseRaiting() {
+    if (this.raiting < 10) {
+      this.raiting++;
+    }
+  }
+
+  decreaseRaiting() {
+    if (this.raiting > 0) {
+      this.raiting--;
+    }
+  }
 
   returnKeys(object: string) {
     return Object.keys(object);
@@ -45,7 +59,7 @@ export class SearchMovieComponent {
 
   addToFavorites(result: MovieInfo, country: CountryInfo[]) {
     const obj = {
-      id: this.api.jokeID,
+      id: this.api.ID,
       Title: result.Title,
       Year: result.Year,
       Actors: result.Actors,
@@ -53,8 +67,12 @@ export class SearchMovieComponent {
       flags: {
         png: country[0].flags.png,
       },
+      comment: this.comment,
+      raiting: this.raiting,
     };
     this.result$ = undefined;
+    this.raiting = 0;
+    this.comment = '';
     return this.api.saveMovie(obj).subscribe();
   }
 }

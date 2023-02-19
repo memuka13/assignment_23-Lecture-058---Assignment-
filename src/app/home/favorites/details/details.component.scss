@@ -1,13 +1,47 @@
 section {
   margin: 50px;
-  background-color: rgba(255, 45, 45, 0.678);
+  background-color: rgba(255, 32, 32, 0.678);
   border-radius: 20px;
+  font-weight: 700;
+  font-size: 20px;
+  color: rgba(255, 243, 243, 0.945);
 
   div {
     padding: 10px;
 
     img {
       width: 100px;
+    }
+
+    .comment, .raiting {
+      display: flex;
+      align-items: center;
+
+      .commentArea {
+        display: flex;
+        gap: 20px;
+
+        p, input {
+          font-weight: 400;
+          font-size: 16px;
+        }
+
+      }
+
+      div {
+        margin-right: 20px;
+      }
+
+      button {
+        margin: 0 20px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        background-color: rgba(88, 88, 88, 0.281);
+        border-radius: 8px;
+        width: 150px;
+        height: 30px;
+      }
     }
   }
 }

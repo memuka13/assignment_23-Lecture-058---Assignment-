@@ -28,4 +28,6 @@ export interface FavouriteMoviesList {
   flags: {
     png: string;
   };
+  comment: string;
+  raiting: number;
 }

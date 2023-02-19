@@ -8,5 +8,27 @@
     <div>
       <img src="{{ selection.flags.png }}" />
     </div>
+    <div class="raiting">
+      <div>Raiting</div>
+      <div>{{ selection.raiting }}</div>
+    </div>
+    <div class="comment">
+      <div class="commentArea">
+        <div>Comment:</div>
+        <p *ngIf="hidden">{{ selection.comment }}</p>
+        <input *ngIf="!hidden" #input [value]="selection.comment" size="100" />
+      </div>
+      <button *ngIf="hidden" (click)="activateEditArea(selection.comment)">
+        Edit
+      </button>
+      <button
+        *ngIf="!hidden"
+        (click)="editMovieComment(selection.id, selection)"
+      >
+        Update
+      </button>
+    </div>
   </div>
 </section>
+
+<div></div>

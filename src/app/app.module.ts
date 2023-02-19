@@ -6,7 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { SearchMovieComponent } from './home/search-movie/search-movie.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { API_BASE_COUNTRY, API_BASE_MOVIE } from './tokens';
 import { environment } from 'src/environments/environment';
 import { CommonModule } from '@angular/common';
@@ -14,13 +14,20 @@ import { FavoritesComponent } from './home/favorites/favorites.component';
 import { DetailsComponent } from './home/favorites/details/details.component';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, SearchMovieComponent, FavoritesComponent, DetailsComponent],
+  declarations: [
+    AppComponent,
+    HomeComponent,
+    SearchMovieComponent,
+    FavoritesComponent,
+    DetailsComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
     CommonModule,
+    FormsModule,
   ],
   providers: [
     {
