@@ -1,0 +1,72 @@
+<h2>Enter Movie Details</h2>
+
+<form
+  [formGroup]="form"
+  (ngSubmit)="handleSubmission()"
+  [class.submitted]="isSubmitted"
+>
+  <div>
+    <p>Name</p>
+    <input type="text" formControlName="name" />
+  </div>
+
+  <div *ngIf="allCountries$ | async as allCountries">
+    <p>Country</p>
+    <select formControlName="country">
+      <option [value]="null" selected hidden>Select</option>
+      <option
+        [value]="country.name.official"
+        *ngFor="let country of allCountries | sort : 'name' : 'official' : true"
+      >
+        {{ country.name.official }}
+      </option>
+    </select>
+  </div>
+
+  <div *ngIf="isGreterThan50Million">
+    <p>Premier Event Place</p>
+    <input type="text" formControlName="premierEventPlace" />
+  </div>
+
+  <div>
+    <p>Relese Date</p>
+    <input type="date" formControlName="releseDate" />
+  </div>
+
+  <app-genre [genreFormGroup]="form.controls['genre']"></app-genre>
+
+  <div>
+    <p>Movie or TV-Show</p>
+    <div>
+      <input
+        class="radio"
+        type="radio"
+        id="movie"
+        formControlName="movieOrTvShow"
+        [value]="movieOrTvShow.Movie"
+      /><label for="movie">{{ movieOrTvShow.Movie }}</label>
+    </div>
+    <div>
+      <input
+        class="radio"
+        type="radio"
+        id="tv-show"
+        formControlName="movieOrTvShow"
+        [value]="movieOrTvShow.TvShow"
+      /><label for="tv-show">{{ movieOrTvShow.TvShow }}</label>
+    </div>
+  </div>
+
+  <div *ngIf="form.controls['minutes']">
+    <p>Minutes</p>
+    <input type="number" formControlName="minutes" />
+  </div>
+
+  <div *ngIf="form.controls['series']">
+    <p>Series</p>
+    <input type="number" formControlName="series" />
+  </div>
+
+  <app-raiting-stars></app-raiting-stars>
+  <button class="submitButton" type="submit">Add Movie</button>
+</form>

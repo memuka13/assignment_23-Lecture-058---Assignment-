@@ -2,8 +2,17 @@ import { HttpClient } from '@angular/common/http';
 import { Inject, Injectable } from '@angular/core';
 import { forkJoin, Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { CountryInfo, MovieInfo, FavouriteMoviesList } from './app.model';
-import { API_BASE_COUNTRY, API_BASE_MOVIE } from './tokens';
+import {
+  CountryInfo,
+  MovieInfo,
+  FavouriteMoviesList,
+  AllCountries,
+} from './app.model';
+import {
+  API_BASE_COUNTRY,
+  API_BASE_COUNTRY_ALL,
+  API_BASE_MOVIE,
+} from './tokens';
 
 @Injectable({
   providedIn: 'root',
@@ -15,7 +24,8 @@ export class AppService {
   constructor(
     private http: HttpClient,
     @Inject(API_BASE_MOVIE) private apiBaseMovie: string,
-    @Inject(API_BASE_COUNTRY) private apiBaseCountry: string
+    @Inject(API_BASE_COUNTRY) private apiBaseCountry: string,
+    @Inject(API_BASE_COUNTRY_ALL) private apiBaseCountryAll: string
   ) {}
 
   ID: string = '';
@@ -34,6 +44,10 @@ export class AppService {
 
   getCountry(country: string): Observable<CountryInfo[]> {
     return this.http.get<CountryInfo[]>(`${this.apiBaseCountry}${country}`);
+  }
+
+  getAllCountry(): Observable<AllCountries[]> {
+    return this.http.get<any>(`${this.apiBaseCountryAll}`);
   }
 
   getFavourites(): Observable<FavouriteMoviesList[]> {

@@ -10,6 +10,7 @@ export interface CountryInfo {
   flags: {
     png: string;
   };
+  population?: number;
 }
 
 // export interface CountryResult {
@@ -30,4 +31,11 @@ export interface FavouriteMoviesList {
   };
   comment: string;
   raiting: number;
+}
+
+export interface AllCountries {
+  name: {
+    official: string;
+  };
+  population: string;
 }
