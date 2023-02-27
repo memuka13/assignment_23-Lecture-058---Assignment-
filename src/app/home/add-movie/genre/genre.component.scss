@@ -1,9 +1,26 @@
 p {
   font-size: 18px;
 }
+form {
+  display: grid;
+  grid-template-columns: 17% 17% 17% 17%;
+  gap: 5px 4%;
 
-input {
-  border: 1px solid rgba(0, 0, 0, 0.2);
-  border-radius: 6px;
-  padding: 5px;
+  div {
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 6px;
+    padding: 5px;
+
+    input {
+      padding: 5px;
+    }
+
+    label {
+      margin: 0 10px;
+    }
+  }
+
+
 }
+
+

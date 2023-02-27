@@ -41,18 +41,24 @@ export class AddMovieComponent {
   handleSubmission() {
     this.isSubmitted = true;
     console.log(this.form);
+    if (this.form.status === 'VALID') {
+      return this.api
+        .saveAddedMovie(this.form.value)
+        .subscribe(() => (this.form = this.buildForm()));
+    }
+    return;
   }
 
   private buildForm() {
     return this.fb.group<AddMovie>({
-      name: this.fb.control('', [
+      name: this.fb.control(null, [
         Validators.required,
         Validators.minLength(3),
         Validators.maxLength(20),
       ]),
-      country: this.fb.control(''),
-      premierEventPlace: this.fb.control(''),
-      releseDate: this.fb.control(null, [
+      country: this.fb.control(null, [Validators.required]),
+      premierEventPlace: this.fb.control(null),
+      releaseDate: this.fb.control(null, [
         Validators.required,
         dateGreaterThanOrEqualToCurrent,
       ]),
@@ -67,13 +73,13 @@ export class AddMovieComponent {
         thriller: this.fb.control(false),
       }),
       movieOrTvShow: this.fb.control(null, [Validators.required]),
-      minutes: this.fb.control(''),
-      series: this.fb.control(''),
-      raiting: this.fb.control(0),
+      minutes: this.fb.control(null, [Validators.min(60), Validators.max(190)]),
+      series: this.fb.control(null),
+      rating: this.fb.control(0, [Validators.min(1)]),
     });
   }
 
-  private handleMinutesOrSeries(type: MovieOrTvShow | null) {
+  private handleMinutesOrSeries(type: MovieOrTvShow | null | undefined) {
     switch (type) {
       case MovieOrTvShow.Movie: {
         this.form.addControl('minutes', this.fb.control(''));
@@ -88,8 +94,8 @@ export class AddMovieComponent {
     }
   }
 
-  private handlePremier(country: string | null) {
-    if (country !== null) {
+  private handlePremier(country: string | null | undefined) {
+    if (country !== null && country !== undefined) {
       this.api.getCountry(country).subscribe((x) => {
         if (x[0].population) {
           if (x[0].population > 50000) {

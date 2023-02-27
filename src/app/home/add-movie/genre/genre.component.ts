@@ -9,21 +9,7 @@ import { Genre } from '../add-movie.model';
   styleUrls: ['./genre.component.scss'],
 })
 export class GenreComponent {
-  // genre: FormGroup<Genre> = this.buildForm();
-  @Input() genreFormGroup: FormGroup = this.buildForm();
+  @Input() genreFormGroup!: FormGroup;
 
   constructor(private fb: FormBuilder, private api: AppService) {}
-
-  private buildForm() {
-    return this.fb.group<Genre>({
-      action: this.fb.control(false),
-      comedy: this.fb.control(false),
-      drama: this.fb.control(false),
-      fantasy: this.fb.control(false),
-      horror: this.fb.control(false),
-      mystery: this.fb.control(false),
-      romance: this.fb.control(false),
-      thriller: this.fb.control(false),
-    });
-  }
 }

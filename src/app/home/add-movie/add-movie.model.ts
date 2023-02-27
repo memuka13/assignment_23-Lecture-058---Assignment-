@@ -1,15 +1,15 @@
 import { FormControl, FormGroup } from '@angular/forms';
 
 export interface AddMovie {
-  name: FormControl<string | null>;
-  country: FormControl<string | null>;
-  premierEventPlace?: FormControl<string | null>;
-  releseDate: FormControl<Date | null>;
+  name: FormControl<string | null | undefined>;
+  country: FormControl<string | null | undefined>;
+  premierEventPlace?: FormControl<string | null | undefined>;
+  releaseDate: FormControl<string | Date | null | undefined>;
   genre: FormGroup<Genre>;
-  movieOrTvShow: FormControl<MovieOrTvShow | null>;
-  minutes?: FormControl<string | null>;
-  series?: FormControl<string | null>;
-  raiting: FormControl<number | null>;
+  movieOrTvShow: FormControl<MovieOrTvShow | null | undefined>;
+  minutes?: FormControl<string | number | null | undefined>;
+  series?: FormControl<string | number | null | undefined>;
+  rating: FormControl<number | null | undefined>;
 }
 
 export interface Genre {

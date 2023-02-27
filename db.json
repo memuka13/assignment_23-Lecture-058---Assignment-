@@ -60,5 +60,127 @@
       "comment": "2023",
       "raiting": 0
     }
+  ],
+  "addedMovies": [
+    {
+      "id": 7,
+      "name": "abara",
+      "country": "Anguilla",
+      "premierEventPlace": null,
+      "releaseDate": "2023-02-26",
+      "genre": {
+        "action": false,
+        "comedy": true,
+        "drama": false,
+        "fantasy": false,
+        "horror": false,
+        "mystery": false,
+        "romance": false,
+        "thriller": false
+      },
+      "movieOrTvShow": "Tv-Show",
+      "rating": 1,
+      "series": 2
+    },
+    {
+      "id": 8,
+      "name": "zfdfz",
+      "country": "Anguilla",
+      "premierEventPlace": null,
+      "releaseDate": "2023-03-05",
+      "genre": {
+        "action": true,
+        "comedy": false,
+        "drama": false,
+        "fantasy": false,
+        "horror": false,
+        "mystery": false,
+        "romance": false,
+        "thriller": false
+      },
+      "movieOrTvShow": "Movie",
+      "rating": 7,
+      "minutes": 34
+    },
+    {
+      "id": 9,
+      "name": "Edited",
+      "country": "Anguilla",
+      "premierEventPlace": null,
+      "releaseDate": "2023-03-02",
+      "genre": {
+        "action": true,
+        "comedy": false,
+        "drama": false,
+        "fantasy": false,
+        "horror": false,
+        "mystery": false,
+        "romance": false,
+        "thriller": false
+      },
+      "movieOrTvShow": "Movie",
+      "rating": 8,
+      "minutes": null,
+      "series": null
+    },
+    {
+      "id": 10,
+      "name": null,
+      "country": null,
+      "premierEventPlace": null,
+      "releaseDate": null,
+      "genre": {
+        "action": false,
+        "comedy": false,
+        "drama": false,
+        "fantasy": false,
+        "horror": false,
+        "mystery": false,
+        "romance": false,
+        "thriller": false
+      },
+      "movieOrTvShow": null,
+      "rating": 1
+    },
+    {
+      "id": 11,
+      "name": "Movie",
+      "country": "Bailiwick of Jersey",
+      "premierEventPlace": "Jersey",
+      "releaseDate": "2023-02-28",
+      "genre": {
+        "action": false,
+        "comedy": false,
+        "drama": false,
+        "fantasy": false,
+        "horror": false,
+        "mystery": true,
+        "romance": false,
+        "thriller": false
+      },
+      "movieOrTvShow": "Tv-Show",
+      "rating": 7,
+      "series": 40
+    },
+    {
+      "id": 12,
+      "name": "abc",
+      "country": "Anguilla",
+      "premierEventPlace": null,
+      "releaseDate": "2023-03-02",
+      "genre": {
+        "action": true,
+        "comedy": false,
+        "drama": false,
+        "fantasy": false,
+        "horror": false,
+        "mystery": false,
+        "romance": false,
+        "thriller": false
+      },
+      "movieOrTvShow": "Movie",
+      "rating": 7,
+      "minutes": 123
+    }
   ]
 }

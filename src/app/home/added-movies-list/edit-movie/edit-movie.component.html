@@ -1,4 +1,4 @@
-<h2>Enter Movie Details</h2>
+<h2>Edit Movie Details</h2>
 
 <form
   [formGroup]="form"
@@ -71,5 +71,12 @@
     formControlName="rating"
     [maxRating]="10"
   ></app-rating-stars>
-  <button class="submitButton" type="submit">Add Movie</button>
+  <button class="submitButton" type="submit">Update</button>
+  <button
+    class="submitButton"
+    routerLink="../../added-movie-list"
+    type="button"
+  >
+    Cancel
+  </button>
 </form>

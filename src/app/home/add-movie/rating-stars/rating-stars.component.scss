@@ -1,0 +1,82 @@
+:host {
+  &.ng-invalid {
+    .currentRating {
+      color: red
+    }
+  }
+}
+
+.star {
+  color: gray;
+  cursor: pointer;
+  transition: color 0.25s ease-out;
+  font-size: 2rem;
+  // transform: scale(1);
+
+}
+
+.flex {
+  box-sizing: border-box;
+  display: flex;
+  align-items: baseline;
+
+  div{
+    margin: 0;
+    padding: 0 5px;
+
+    &.enlarge {
+        transform: scale(1.3);
+        transition: 0.4s ease-in-out;
+      }
+
+    .star {
+
+      &.hovered {
+        color: gold;
+        transform: scale(1.2);
+        transition: 0.5s ease-in-out;
+      }
+
+      &.filled {
+        color: gold;
+      }
+    }
+  }
+
+  .currentRating {
+    font-weight: 500;
+    font-size: 28px;
+
+    &:invalid {
+      color: red;
+    }
+  }
+
+  .maxRating {
+    font-weight: 500;
+  }
+
+  // .filled {
+  //   color: gold;
+  // }
+  // .hovered {
+  //   color: gold;
+  //   transform: scale(1.2);
+  //   transition: 0.5s ease-in-out;
+  // }
+
+  // .currentRating {
+  //   font-weight: 500;
+  //   font-size: 28px;
+
+  //   &.invalid {
+  //     color: red;
+  //   }
+  // }
+
+  // .maxRating {
+  //   font-weight: 500;
+  // }
+}
+
+

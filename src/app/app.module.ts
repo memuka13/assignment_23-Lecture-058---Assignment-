@@ -18,8 +18,11 @@ import { FavoritesComponent } from './home/favorites/favorites.component';
 import { DetailsComponent } from './home/favorites/details/details.component';
 import { AddMovieComponent } from './home/add-movie/add-movie.component';
 import { SortPipe } from './home/add-movie/sort.pipe';
-import { RaitingStarsComponent } from './home/add-movie/raiting-stars/raiting-stars.component';
+import { RatingStarsComponent } from './home/add-movie/rating-stars/rating-stars.component';
 import { GenreComponent } from './home/add-movie/genre/genre.component';
+import { AddedMoviesListComponent } from './home/added-movies-list/added-movies-list.component';
+import { FilterPipe } from './home/added-movies-list/filter.pipe';
+import { EditMovieComponent } from './home/added-movies-list/edit-movie/edit-movie.component';
 
 @NgModule({
   declarations: [
@@ -30,8 +33,11 @@ import { GenreComponent } from './home/add-movie/genre/genre.component';
     DetailsComponent,
     AddMovieComponent,
     SortPipe,
-    RaitingStarsComponent,
+    RatingStarsComponent,
     GenreComponent,
+    AddedMoviesListComponent,
+    FilterPipe,
+    EditMovieComponent,
   ],
   imports: [
     BrowserModule,

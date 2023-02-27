@@ -1,0 +1,28 @@
+<ul>
+  <li *ngFor="let movie of addedMovies$ | async">
+    <p>Name: {{ movie.name }}</p>
+    <p>Country: {{ movie.country }}</p>
+    <p *ngIf="movie.premierEventPlace !== null">
+      Premier Event Place: {{ movie.premierEventPlace }}
+    </p>
+    <p>Release Date: {{ movie.releaseDate }}</p>
+    <p>Genre: {{ movie.genre! | filter }}</p>
+    <p>Movie or Tv-Show: {{ movie.movieOrTvShow }}</p>
+    <p *ngIf="movie.movieOrTvShow === 'Movie'">Minutes: {{ movie.minutes }}</p>
+    <p *ngIf="movie.movieOrTvShow === 'Tv-Show'">Series: {{ movie.series }}</p>
+    <p>Rating: {{ movie.rating }}</p>
+
+    <div>
+      <button
+        class="button"
+        [routerLink]="['/edit', movie.id]"
+        (click)="edit(movie.id)"
+      >
+        Edit 📝
+      </button>
+      <button class="button" (click)="deleteAddedMovie(movie.id)">
+        Delete ❌
+      </button>
+    </div>
+  </li>
+</ul>

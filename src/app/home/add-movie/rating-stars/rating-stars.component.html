@@ -1,0 +1,26 @@
+<div>
+  <p class="rating">Raiting</p>
+
+  <div class="flex">
+    <div
+      *ngFor="let star of stars; let i = index"
+      (mouseenter)="enter(i)"
+      (mouseleave)="leave()"
+      (click)="rate(i)"
+      [class.enlarge]="i === hoveredStars - 1"
+    >
+      <span
+        class="star active"
+        [class.hovered]="i < hoveredStars"
+        [class.filled]="i < rating"
+      >
+        &#9733;
+      </span>
+    </div>
+    <div>
+      <span class="currentRating">{{ rating }}</span>
+      /
+      <span class="maxRating">{{ stars.length }}</span>
+    </div>
+  </div>
+</div>

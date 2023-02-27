@@ -1,0 +1,52 @@
+form {
+  display: grid;
+  grid-template-columns: 100vw;
+  gap: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  padding: 20px;
+
+  p {
+    font-size: 18px;
+  }
+
+  input, select {
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 6px;
+    padding: 5px;
+    width: 80%;
+  }
+
+  .radio {
+    width: unset;
+    margin: 0 10px;
+  }
+
+
+
+  .submitButton {
+    border: none;
+    border-radius: 6px;
+    background-color: rgba(243, 31, 31, 0.5);
+    padding: 5px;
+    color: rgb(255, 220, 220);
+    margin: 0 20%;
+  }
+}
+
+.submitted {
+  input[type="text"],
+  input[type="number"],
+  input[type="Date"],
+  input[type="radio"],
+  select{
+
+    &.ng-invalid {
+      border: 1px solid rgba(255, 110, 110, 0.911);
+    }
+
+    &.ng-valid {
+      border: 1px solid rgba(146, 255, 146, 0.877);
+    }
+  }
+}
