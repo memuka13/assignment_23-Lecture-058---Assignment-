@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { map, Observable, switchMap } from 'rxjs';
 import { AppService } from 'src/app/app.service';
 import { dateGreaterThanOrEqualToCurrent } from './add-movie.functions';
@@ -19,32 +20,40 @@ export class AddMovieComponent {
   isSubmitted = false;
   movieOrTvShow = MovieOrTvShow;
   allCountries$: Observable<AllCountries[]> = this.api.getAllCountry();
-  form: FormGroup<AddMovie> = this.buildForm();
+  form: FormGroup<AddMovie> | undefined = this.buildForm();
   isGreterThan50Million: boolean = false;
 
-  constructor(private fb: FormBuilder, private api: AppService) {}
+  constructor(
+    private fb: FormBuilder,
+    private api: AppService,
+    private _router: Router
+  ) {}
 
   ngOnInit() {
-    this.form.removeControl('series');
-    this.form.removeControl('minutes');
+    if (this.form) {
+      this.form.removeControl('series');
+      this.form.removeControl('minutes');
+    }
+    // this.form = this.buildForm();
   }
 
   ngAfterViewInit() {
-    this.form.controls.movieOrTvShow?.valueChanges.subscribe((type) =>
-      this.handleMinutesOrSeries(type)
-    );
-    this.form.controls.country?.valueChanges.subscribe((country) =>
-      this.handlePremier(country)
-    );
+    if (this.form) {
+      this.form.controls.movieOrTvShow?.valueChanges.subscribe((type) =>
+        this.handleMinutesOrSeries(type)
+      );
+      this.form.controls.country?.valueChanges.subscribe((country) =>
+        this.handlePremier(country)
+      );
+    }
   }
 
   handleSubmission() {
     this.isSubmitted = true;
-    console.log(this.form);
-    if (this.form.status === 'VALID') {
-      return this.api
-        .saveAddedMovie(this.form.value)
-        .subscribe(() => (this.form = this.buildForm()));
+    if (this.form && this.form.valid) {
+      return this.api.saveAddedMovie(this.form.value).subscribe(() => {
+        this._router.navigate(['added-movie-list']);
+      });
     }
     return;
   }
@@ -80,16 +89,18 @@ export class AddMovieComponent {
   }
 
   private handleMinutesOrSeries(type: MovieOrTvShow | null | undefined) {
-    switch (type) {
-      case MovieOrTvShow.Movie: {
-        this.form.addControl('minutes', this.fb.control(''));
-        this.form.removeControl('series');
-        break;
-      }
-      case MovieOrTvShow.TvShow: {
-        this.form.addControl('series', this.fb.control(''));
-        this.form.removeControl('minutes');
-        break;
+    if (this.form) {
+      switch (type) {
+        case MovieOrTvShow.Movie: {
+          this.form.addControl('minutes', this.fb.control(''));
+          this.form.removeControl('series');
+          break;
+        }
+        case MovieOrTvShow.TvShow: {
+          this.form.addControl('series', this.fb.control(''));
+          this.form.removeControl('minutes');
+          break;
+        }
       }
     }
   }

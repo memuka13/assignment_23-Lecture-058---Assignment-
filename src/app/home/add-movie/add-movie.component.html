@@ -1,6 +1,7 @@
 <h2>Enter Movie Details</h2>
 
 <form
+  *ngIf="form"
   [formGroup]="form"
   (ngSubmit)="handleSubmission()"
   [class.submitted]="isSubmitted"

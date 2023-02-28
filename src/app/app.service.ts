@@ -9,6 +9,7 @@ import {
   AllCountries,
   addedMoviesList,
 } from './app.model';
+import { AddMovie, GetMovie } from './home/add-movie/add-movie.model';
 import {
   API_BASE_COUNTRY,
   API_BASE_COUNTRY_ALL,
@@ -69,7 +70,7 @@ export class AppService {
     return this.http.delete(`${environment.jsonServerBase}movies/${id}`);
   }
 
-  saveAddedMovie(object: any) {
+  saveAddedMovie(object: Partial<GetMovie>) {
     return this.getAddedMovies().pipe(
       switchMap((moviesList) => {
         const id =
@@ -84,7 +85,7 @@ export class AppService {
     );
   }
 
-  editAddedMovie(id: string, object: any) {
+  editAddedMovie(id: string, object: Partial<GetMovie>) {
     return this.http.patch(
       `${environment.jsonServerBase}addedMovies/${id}`,
       object

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Observable, switchMap } from 'rxjs';
+import { Observable, switchMap, tap } from 'rxjs';
 import { addedMoviesList } from 'src/app/app.model';
 import { AppService } from 'src/app/app.service';
 import { dateGreaterThanOrEqualToCurrent } from '../../add-movie/add-movie.functions';
@@ -17,12 +17,12 @@ import {
   styleUrls: ['./edit-movie.component.scss'],
 })
 export class EditMovieComponent implements OnInit {
-  selection: addedMoviesList | undefined;
-  form: FormGroup<AddMovie> = this.buildForm();
   isSubmitted = false;
-  allCountries$: Observable<AllCountries[]> = this.api.getAllCountry();
-  isGreterThan50Million: boolean = false;
   movieOrTvShow = MovieOrTvShow;
+  allCountries$: Observable<AllCountries[]> = this.api.getAllCountry();
+  form: FormGroup<AddMovie> | undefined;
+  isGreterThan50Million: boolean = false;
+  selection: addedMoviesList | undefined;
 
   constructor(
     private api: AppService,
@@ -35,28 +35,31 @@ export class EditMovieComponent implements OnInit {
     const id = this.activatedRoute.snapshot.params['id'];
     this.api
       .getAddedMovies()
-      .pipe(switchMap((list) => list))
-      .subscribe((x) => {
-        if (x.id.toString() === id) {
-          this.selection = x;
+      .pipe(
+        tap((list) => {
+          this.selection = list.find((x) => x.id.toString() === id);
+          console.log(this.selection);
+
           this.form = this.buildForm();
-        }
-      });
+        })
+      )
+      .subscribe();
   }
 
   ngAfterViewInit() {
-    this.form.controls.movieOrTvShow?.valueChanges.subscribe((type) =>
-      this.handleMinutesOrSeries(type)
-    );
-    this.form.controls.country?.valueChanges.subscribe((country) =>
-      this.handlePremier(country)
-    );
+    if (this.form) {
+      this.form.controls.movieOrTvShow?.valueChanges.subscribe((type) =>
+        this.handleMinutesOrSeries(type)
+      );
+      this.form.controls.country?.valueChanges.subscribe((country) =>
+        this.handlePremier(country)
+      );
+    }
   }
 
   handleSubmission() {
     this.isSubmitted = true;
-    console.log(this.form);
-    if (this.form.status === 'VALID') {
+    if (this.form && this.form.valid) {
       return this.api
         .editAddedMovie(
           this.activatedRoute.snapshot.params['id'],
@@ -103,16 +106,18 @@ export class EditMovieComponent implements OnInit {
   }
 
   private handleMinutesOrSeries(type: MovieOrTvShow | null | undefined) {
-    switch (type) {
-      case MovieOrTvShow.Movie: {
-        this.form.addControl('minutes', this.fb.control(''));
-        this.form.removeControl('series');
-        break;
-      }
-      case MovieOrTvShow.TvShow: {
-        this.form.addControl('series', this.fb.control(''));
-        this.form.removeControl('minutes');
-        break;
+    if (this.form) {
+      switch (type) {
+        case MovieOrTvShow.Movie: {
+          this.form.addControl('minutes', this.fb.control(''));
+          this.form.removeControl('series');
+          break;
+        }
+        case MovieOrTvShow.TvShow: {
+          this.form.addControl('series', this.fb.control(''));
+          this.form.removeControl('minutes');
+          break;
+        }
       }
     }
   }

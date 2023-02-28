@@ -83,26 +83,6 @@
       "series": 2
     },
     {
-      "id": 8,
-      "name": "zfdfz",
-      "country": "Anguilla",
-      "premierEventPlace": null,
-      "releaseDate": "2023-03-05",
-      "genre": {
-        "action": true,
-        "comedy": false,
-        "drama": false,
-        "fantasy": false,
-        "horror": false,
-        "mystery": false,
-        "romance": false,
-        "thriller": false
-      },
-      "movieOrTvShow": "Movie",
-      "rating": 7,
-      "minutes": 34
-    },
-    {
       "id": 9,
       "name": "Edited",
       "country": "Anguilla",
@@ -124,25 +104,6 @@
       "series": null
     },
     {
-      "id": 10,
-      "name": null,
-      "country": null,
-      "premierEventPlace": null,
-      "releaseDate": null,
-      "genre": {
-        "action": false,
-        "comedy": false,
-        "drama": false,
-        "fantasy": false,
-        "horror": false,
-        "mystery": false,
-        "romance": false,
-        "thriller": false
-      },
-      "movieOrTvShow": null,
-      "rating": 1
-    },
-    {
       "id": 11,
       "name": "Movie",
       "country": "Bailiwick of Jersey",
@@ -159,8 +120,9 @@
         "thriller": false
       },
       "movieOrTvShow": "Tv-Show",
-      "rating": 7,
-      "series": 40
+      "rating": 9,
+      "series": 40,
+      "minutes": null
     },
     {
       "id": 12,
@@ -181,6 +143,226 @@
       "movieOrTvShow": "Movie",
       "rating": 7,
       "minutes": 123
+    },
+    {
+      "id": 13,
+      "name": "Movie",
+      "country": "United States of America",
+      "premierEventPlace": "New York",
+      "releaseDate": "2023-02-28",
+      "genre": {
+        "action": true,
+        "comedy": false,
+        "drama": false,
+        "fantasy": false,
+        "horror": true,
+        "mystery": false,
+        "romance": false,
+        "thriller": false
+      },
+      "movieOrTvShow": "Tv-Show",
+      "rating": 9,
+      "series": 40
+    },
+    {
+      "id": 14,
+      "name": "Movie",
+      "country": "Arab Republic of Egypt",
+      "premierEventPlace": "Georgia",
+      "releaseDate": "2023-02-28",
+      "genre": {
+        "action": false,
+        "comedy": false,
+        "drama": true,
+        "fantasy": false,
+        "horror": false,
+        "mystery": false,
+        "romance": true,
+        "thriller": false
+      },
+      "movieOrTvShow": "Movie",
+      "rating": 8,
+      "minutes": 100
+    },
+    {
+      "id": 20,
+      "name": "afsf",
+      "country": "Antarctica",
+      "premierEventPlace": null,
+      "releaseDate": "2023-03-02",
+      "genre": {
+        "action": true,
+        "comedy": false,
+        "drama": false,
+        "fantasy": false,
+        "horror": false,
+        "mystery": false,
+        "romance": false,
+        "thriller": false
+      },
+      "movieOrTvShow": "Movie",
+      "minutes": 100,
+      "rating": 8
+    },
+    {
+      "id": 21,
+      "name": "Name",
+      "country": "Anguilla",
+      "premierEventPlace": null,
+      "releaseDate": "2023-03-05",
+      "genre": {
+        "action": false,
+        "comedy": false,
+        "drama": false,
+        "fantasy": false,
+        "horror": false,
+        "mystery": true,
+        "romance": false,
+        "thriller": false
+      },
+      "movieOrTvShow": "Movie",
+      "minutes": 100,
+      "rating": 10
+    },
+    {
+      "id": 22,
+      "name": "Rating",
+      "country": "Anguilla",
+      "premierEventPlace": null,
+      "releaseDate": "2023-03-03",
+      "genre": {
+        "action": false,
+        "comedy": false,
+        "drama": false,
+        "fantasy": false,
+        "horror": false,
+        "mystery": false,
+        "romance": true,
+        "thriller": false
+      },
+      "movieOrTvShow": "Tv-Show",
+      "series": 34,
+      "rating": 9
+    },
+    {
+      "id": 23,
+      "name": "Rating",
+      "country": "Anguilla",
+      "premierEventPlace": null,
+      "releaseDate": "2023-03-09",
+      "genre": {
+        "action": false,
+        "comedy": false,
+        "drama": false,
+        "fantasy": false,
+        "horror": false,
+        "mystery": true,
+        "romance": false,
+        "thriller": false
+      },
+      "movieOrTvShow": "Movie",
+      "minutes": 100,
+      "rating": 9
+    },
+    {
+      "id": 24,
+      "name": "Movie",
+      "country": "Antarctica",
+      "premierEventPlace": null,
+      "releaseDate": "2023-03-11",
+      "genre": {
+        "action": false,
+        "comedy": false,
+        "drama": true,
+        "fantasy": false,
+        "horror": false,
+        "mystery": false,
+        "romance": false,
+        "thriller": false
+      },
+      "movieOrTvShow": "Movie",
+      "minutes": 100,
+      "rating": 9
+    },
+    {
+      "id": 25,
+      "name": "Name",
+      "country": "Anguilla",
+      "premierEventPlace": null,
+      "releaseDate": "2023-03-11",
+      "genre": {
+        "action": false,
+        "comedy": false,
+        "drama": false,
+        "fantasy": true,
+        "horror": false,
+        "mystery": false,
+        "romance": false,
+        "thriller": false
+      },
+      "movieOrTvShow": "Movie",
+      "minutes": 100,
+      "rating": 8
+    },
+    {
+      "id": 26,
+      "name": "Name",
+      "country": "Antarctica",
+      "premierEventPlace": null,
+      "releaseDate": "2023-03-10",
+      "genre": {
+        "action": false,
+        "comedy": true,
+        "drama": false,
+        "fantasy": false,
+        "horror": false,
+        "mystery": false,
+        "romance": false,
+        "thriller": false
+      },
+      "movieOrTvShow": "Movie",
+      "rating": 9,
+      "minutes": 100
+    },
+    {
+      "id": 27,
+      "name": "abc",
+      "country": "Antarctica",
+      "premierEventPlace": null,
+      "releaseDate": "2023-03-02",
+      "genre": {
+        "action": false,
+        "comedy": true,
+        "drama": false,
+        "fantasy": false,
+        "horror": false,
+        "mystery": false,
+        "romance": false,
+        "thriller": false
+      },
+      "movieOrTvShow": "Movie",
+      "rating": 9,
+      "minutes": 100
+    },
+    {
+      "id": 28,
+      "name": "Movie",
+      "country": "Anguilla",
+      "premierEventPlace": null,
+      "releaseDate": "2023-03-02",
+      "genre": {
+        "action": false,
+        "comedy": true,
+        "drama": false,
+        "fantasy": false,
+        "horror": false,
+        "mystery": false,
+        "romance": false,
+        "thriller": false
+      },
+      "movieOrTvShow": "Movie",
+      "rating": 9,
+      "minutes": 100
     }
   ]
 }

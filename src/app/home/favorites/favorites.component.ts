@@ -10,7 +10,6 @@ import { AppService } from 'src/app/app.service';
 })
 export class FavoritesComponent {
   favorites$ = this.api.getFavourites();
-  http: any;
   constructor(private api: AppService) {}
 
   deleteMovie(id: string) {
